@@ -1,41 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>register</title>
-	<link href="view/style.css" rel="stylesheet" />
-</head>
+
 <body>
-		<div class="bg-image"></div>
-		<div class="bg-text">
-			<div class="register_form">
-				<div class="form">
-					<div class="row">
-						<div class="col-75">
-							<div>
-								<form  method="post" id="insert_form" class="form-inline register" action="">
-									<div class="row" id="row">
-										<div class="col-25">
-											<h3>register</h3>
-											<label for="name">username </label>
-											<input type="text" name="username" class="username" placeholder="" required autofocus />
-											<a id="user-validate"></a>
-											<label for="name">name </label>
-											<input type="text" name="name" class="name" placeholder="" required autofocus />
-											<label for="name">lastname </label>
-											<input type="text" name="lastname" class="lastname" placeholder="" required autofocus />
-											<label for="password"> password </label>
-											<input type="password" name="password" placeholder="" required />							
-											<div style='color: red' id="error"></div>
-											<div class="col-50"><input type="submit" value="register" name="add" class="button registerbutton"></div>
+		<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+								<form  method="post" id="insert_form" class="login100-form validate-form register" action="">
+										<span class="login100-form-title p-b-55" >
+						Register
+					</span>
+
+									
+											<div class="wrap-input100 validate-input m-b-16" >
+											<a id="user-validate" style="color: red"></a>
+											<input type="text" name="username" class="username input100" placeholder="username" required autofocus />
 										</div>
-									</div>
+											
+											<div class="wrap-input100 validate-input m-b-16" >
+											<input type="text" name="name" class="name input100" placeholder="name" required autofocus />
+											</div>
+											<div class="wrap-input100 validate-input m-b-16" >
+											<input type="text" name="lastname" class="lastname input100" placeholder="lastname" required autofocus />
+											</div>
+											<div class="wrap-input100 validate-input m-b-16" >
+											<input type="password" name="password" class="input100" placeholder="password" required />
+											</div>							
+											<div style='color: red' id="error"></div>
+
+											<div class="container-login100-form-btn p-t-25">
+						<input type="submit" value="register" name="add" class="login100-form-btn">
+						
+					</div>
+								<div class="text-center w-full p-t-115">
+						<span class="txt1">
+							Had a member?
+						</span>
+
+						<a class="txt1 bo1 hov1" href="./?action=login">
+							log in							
+						</a>
+					</div>			
+										
 								</form>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+				
 	</body>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -82,6 +90,8 @@ if (typeof jQuery == 'undefined') {
 						
 						if (response!="") {
 							$('#error').html(response);
+						}else{
+							$(location).attr('href', './');
 						}
 						
 					}

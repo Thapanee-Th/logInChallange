@@ -25,8 +25,6 @@ class User
 		$result = $this->getUserByUsername($username);
 		if (!empty($result)) {
 			return "this username already use";
-		}else{
-			return "/";
 		}
 	}
 	function getUserByUsername($username) {

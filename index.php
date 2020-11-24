@@ -42,7 +42,15 @@ switch ($action) {
 		}
 	break;
 	case 'register':
+		
+		require_once "view/header.html";
 		require_once "view/register.php";
+
+	break;
+	case 'test':
+	require_once "view/header.html";
+		require_once "view/test.php";
+
 	break;
 	case 'new-user':
 	if (isset($_POST)) {
@@ -52,13 +60,17 @@ switch ($action) {
 	break;
 	default:
 	if(!isset($_SESSION['username'])){
+		require_once "view/header.html";
 		require_once "view/login.php";
+		
 		exit(); 
 	}else{
 		$username = $_SESSION['username'];
+		require_once "view/header.html";
 		require_once "view/index.php";
+	
 }
-		break;
+break;
 }
 
  ?>
