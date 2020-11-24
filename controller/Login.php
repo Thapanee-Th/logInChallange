@@ -18,18 +18,11 @@ require_once ("DBController.php");
 		function login($username, $password){
 			if ($this->pass->verifyPassword($username, $password)===true) {
 				$result = $this->getUserByUsername($username);
-				if (!empty($result)) {
-					$_SESSION['username'] = $result[0]['user_name'];
-					$_SESSION['user_id'] = $result[0]['user_id'];
-					if(!isset($_SESSION)) 
-					{ 
-						session_start();
-					}
-					return null;
+				if (!empty($result)) {	
+					return true;
 				}
 			}else{
-				$error = "Username or password is incorrect.";
-				return $error;
+				return false;
 			}
 		}
 	}

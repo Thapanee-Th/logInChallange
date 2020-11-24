@@ -6,12 +6,25 @@ $action = null;
 if (!empty($_GET["action"])) {
 	$action = $_GET["action"];
 }
-
+if(!isset($_SESSION)) 
+					{ 
+						session_start();
+					}				
 switch ($action) {
 	case 'login-validate';
 	if (isset($_POST)) {
 		$login = new Login();
-			echo $login->login($_POST['username'], $_POST['password']);
+		if ($login->login($_POST['username'], $_POST['password'])) {
+
+			$_SESSION['username'] = $_POST['username'];
+			if(!isset($_SESSION)) 
+					{ 
+						session_start();
+					}				
+
+		}else{
+			echo "Username or password is incorrect.";
+		}
 	}
 	break;
 	case 'user-validate':
@@ -22,10 +35,11 @@ switch ($action) {
 		break;
 	case 'logout':
 		session_start();
+		echo "desstroy";
 		if(session_destroy()) {
 		header("Location: ./"); // Redirecting To Home Page
 		$_SESSION['timeout'] = null;
-	}
+		}
 	break;
 	case 'register':
 		require_once "view/register.php";

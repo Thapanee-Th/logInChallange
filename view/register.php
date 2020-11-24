@@ -18,6 +18,7 @@
 											<h3>register</h3>
 											<label for="name">username </label>
 											<input type="text" name="username" class="username" placeholder="" required autofocus />
+											<a id="user-validate"></a>
 											<label for="name">name </label>
 											<input type="text" name="name" class="name" placeholder="" required autofocus />
 											<label for="name">lastname </label>
@@ -26,10 +27,9 @@
 											<input type="password" name="password" placeholder="" required />							
 											<div style='color: red' id="error"></div>
 											<div class="col-50"><input type="submit" value="register" name="add" class="button registerbutton"></div>
-																					</div>
+										</div>
 									</div>
 								</form>
-								<a href="./?action=register">Create Account</a>
 							</div>
 						</div>
 					</div>
@@ -49,26 +49,26 @@ if (typeof jQuery == 'undefined') {
 		var error = 0;
 		$('.username').change();
 		$('.username').on('change', function(event){
+			$('#user-validate').html("");
 			var username = $(".username").val();
-			console.log(username);
+			
 			$.ajax({
-				async: false,
 				url:"./?action=user-validate",
 				method:"POST",
-				dataType: 'json',
-				data:{username:username},
-				success:function(data)
+				data: {username:username},
+				success:function(response)
 				{
+					console.log(response);
 						if (response!="") {
-							$('#error').html(response);
+							$('#user-validate').html(response);
 							error = 1;
 						}
 				}
 			});
 		});
-		if (error == 0) {
+		
 			$('#insert_form').on('submit', function(event){
-			
+			if (error == 0) {
 			event.preventDefault();
 			var form_data = $(this).serialize();
 			//-------------------------------------insert-------------------------------------			
@@ -86,8 +86,9 @@ if (typeof jQuery == 'undefined') {
 						
 					}
 				});
+			}
 		});
-		}		
+				
 });
 </script>
 </html>

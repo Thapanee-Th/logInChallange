@@ -45,21 +45,16 @@ if (typeof jQuery == 'undefined') {
 	$(document).ready(function(){
 		
 		$('#insert_form').on('submit', function(event){
-			
 			event.preventDefault();
 			var form_data = $(this).serialize();
-			//console.log(form_data);
 			//-------------------------------------insert-------------------------------------			
-			console.log(form_data);
 				$.ajax({
 					url:"./?action=login-validate",
 					method:"POST",
 					data: form_data,
 					success:function(response)
 					{
-						console.log("response "+response);
-						
-						if (response!="") {
+											if (response!="") {
 							$('#error').html(response);
 						}else{
 							$(location).attr('href', './');
