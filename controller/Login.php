@@ -13,7 +13,6 @@ require_once ("DBController.php");
 		function register($data){
 			$password = $this->pass->passwordHash($data['password']);
 			$this->insertUser($data['username'], $data['name'], $data['lastname'], $password);
-
 		}
 		function login($username, $password){
 			if ($this->pass->verifyPassword($username, $password)===true) {

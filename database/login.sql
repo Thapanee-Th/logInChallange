@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2020 at 09:22 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Generation Time: Nov 25, 2020 at 05:38 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -40,7 +41,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `name`, `lastname`, `user_password`) VALUES
-(0, 'user', 'user', 'name', '$2y$12$vgmfNdTN6261vQ.s9I0zQu6ZpE54R8g0tgEQBtJgzz7mLeN9UvWgS');
+(1, 'user', 'user', 'name', '$2y$12$vgmfNdTN6261vQ.s9I0zQu6ZpE54R8g0tgEQBtJgzz7mLeN9UvWgS'),
+(3, 'username', 'name', 'lastname', '$2y$12$tEqlZ02/aD8zXJhGV.OfZulriPRHVjJVDfPYgfibKiTMCEhLdwcFW');
 
 --
 -- Indexes for dumped tables
@@ -52,6 +54,16 @@ INSERT INTO `users` (`user_id`, `user_name`, `name`, `lastname`, `user_password`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
   ADD UNIQUE KEY `user_name` (`user_name`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -41,10 +41,12 @@
 	</body>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
+/*
 if (typeof jQuery == 'undefined') {
 	console.log('undefined');
     document.write(unescape("%3Cscript src='view/js/jquery-3.4.1.min.js' type='text/javascript'%3E%3C/script%3E")); //Load the Local file (if google is down for some reason) 
 }
+*/
 </script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -73,7 +75,8 @@ if (typeof jQuery == 'undefined') {
 			if (error == 0) {
 			event.preventDefault();
 			var form_data = $(this).serialize();
-			//-------------------------------------insert-------------------------------------			
+			//-------------------------------------insert-------------------------------------	
+			console.log("response "+form_data);		
 				$.ajax({
 					url:"./?action=new-user",
 					method:"POST",

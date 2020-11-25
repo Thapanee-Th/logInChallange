@@ -46,15 +46,10 @@ switch ($action) {
 		require_once "view/register.php";
 
 	break;
-	case 'test':
-	require_once "view/header.html";
-		require_once "view/test.php";
-
-	break;
 	case 'new-user':
 	if (isset($_POST)) {
 		$login = new Login();
-		echo $login->register($_POST);
+		$login->register($_POST);
 	}
 	break;
 	default:
