@@ -35,7 +35,6 @@ switch ($action) {
 		break;
 	case 'logout':
 		session_start();
-		echo "desstroy";
 		if(session_destroy()) {
 		header("Location: ./"); // Redirecting To Home Page
 		$_SESSION['timeout'] = null;

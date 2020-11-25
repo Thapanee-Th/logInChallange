@@ -24,7 +24,7 @@ class User
 	function userValidate($username){
 		$result = $this->getUserByUsername($username);
 		if (!empty($result)) {
-			return "this username already use";
+			return "this username already used";
 		}
 	}
 	function getUserByUsername($username) {

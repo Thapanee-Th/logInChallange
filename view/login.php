@@ -19,22 +19,16 @@
 						<input class="input100" type="password" name="password"  placeholder="Password" required>
 						<span class="focus-input100"></span>
 					</div>
-
-					
+					<a id="error" style="color: red"></a>
 					
 					<div class="container-login100-form-btn p-t-25">
-						<a id="user-validate" style="color: red"></a>
-						<input type="submit" value="login" name="add" class="login100-form-btn">
 						
-					</div>
-
-					
-
+						<input type="submit" value="login" name="add" class="login100-form-btn">
+					</div>				
 					<div class="text-center w-full p-t-115">
 						<span class="txt1">
 							Not a member?
 						</span>
-
 						<a class="txt1 bo1 hov1" href="./?action=register">
 							Sign up now							
 						</a>
@@ -68,7 +62,7 @@ if (typeof jQuery == 'undefined') {
 					{
 						console.log('response');
 						if (response!="") {
-							$('#error').html(response);
+							$('#error').html('Username or password is incorrect.');
 						}else{
 							$(location).attr('href', './');
 						}

@@ -4,17 +4,12 @@
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
 								<form  method="post" id="insert_form" class="login100-form validate-form register" action="">
-										<span class="login100-form-title p-b-55" >
-						Register
-					</span>
-
-									
-											<div class="wrap-input100 validate-input m-b-16" >
+										<span class="login100-form-title p-b-55" >Register</span>
+																				<div class="wrap-input100 validate-input m-b-16" >
 											<a id="user-validate" style="color: red"></a>
 											<input type="text" name="username" class="username input100" placeholder="username" required autofocus />
 										</div>
-											
-											<div class="wrap-input100 validate-input m-b-16" >
+																						<div class="wrap-input100 validate-input m-b-16" >
 											<input type="text" name="name" class="name input100" placeholder="name" required autofocus />
 											</div>
 											<div class="wrap-input100 validate-input m-b-16" >
@@ -38,7 +33,6 @@
 							log in							
 						</a>
 					</div>			
-										
 								</form>
 							</div>
 						</div>
@@ -68,7 +62,7 @@ if (typeof jQuery == 'undefined') {
 				{
 					console.log(response);
 						if (response!="") {
-							$('#user-validate').html(response);
+							$('#user-validate').html("this username already used");
 							error = 1;
 						}
 				}
